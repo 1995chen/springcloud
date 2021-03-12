@@ -1,0 +1,26 @@
+server:
+  # 服务端口
+  port: 8888
+
+eureka:
+  instance:
+    # 设置主机名
+    hostname: localhost
+  client:
+    # 是否向 Eureka 注册服务。该应用为服务注册中心，不需要自注册，设置为 false
+    register-with-eureka: false
+    # 是否检索服务。该应用为服务注册中心，职责为注册和发现服务，无需检索服务，设置为 false
+    fetch-registry: false
+  server:
+    # 设置同步为空时的等待时间。默认 5 * MINUTES
+    wait-time-in-ms-when-sync-empty: 0
+    # 进入自我保护状态的阈值
+    # renewalPercentThreshold: 0.49
+    # 关闭自我保护
+    enableSelfPreservation: false
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
