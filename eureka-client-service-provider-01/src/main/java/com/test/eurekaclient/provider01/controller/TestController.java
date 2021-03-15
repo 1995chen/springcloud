@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
@@ -24,7 +26,15 @@ public class TestController {
 
     @RequestMapping("/service-instances/{applicationName}")
     public AppRes serviceInstancesByApplicationName(
-            @PathVariable String applicationName) {
+            @PathVariable String applicationName) throws InterruptedException {
+        // 随机sleep
+        Random random = new Random();
+        int x = random.nextInt(8);
+        log.info("sleep {}", x);
+        TimeUnit.SECONDS.sleep(x);
+//        if (applicationName.equals("test")) {
+//            throw new RuntimeException("throw ex !!!");
+//        }
         log.info("this is provider-01");
         List<ServiceInstance> instanceList = this.discoveryClient.getInstances(applicationName);
         AppRes appRes = new AppRes();
