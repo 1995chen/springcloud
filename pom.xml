@@ -20,6 +20,7 @@
         <module>eureka-client-service-provider-01</module>
         <module>eureka-client-service-provider-02</module>
         <module>eureka-client-service-customer</module>
+        <module>eureka-client-oauth2-service</module>
     </modules>
 
     <build>
